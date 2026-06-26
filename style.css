@@ -1,0 +1,432 @@
+/* --- 1. إعدادات عامة (Global Styles) --- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth; /* ميزة الانتقال السلس للأقسام عند الضغط على الـ Navbar */
+}
+
+body{
+    background: #050816;
+    color: white;
+    overflow-x: hidden;
+}
+
+section{
+    padding: 100px;
+}
+
+/* --- 2. شريط التنقل (Navigation) --- */
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 100px;
+    position: fixed;
+    width: 100%;
+    background: rgba(5, 8, 22, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.logo{
+    font-size: 32px;
+    font-weight: bold;
+    color: #7c3aed;
+}
+
+nav ul{
+    display: flex;
+    gap: 35px;
+    list-style: none;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: .3s;
+}
+
+nav a:hover{
+    color: #38bdf8;
+}
+
+/* --- 3. قسم الـ Hero الرئيسي --- */
+.hero{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+}
+
+.left{
+    width: 55%;
+}
+
+.left h3{
+    font-size: 28px;
+}
+
+.left h1{
+    font-size: 70px;
+    margin: 15px 0;
+}
+
+.left h2{
+    font-size: 40px;
+    color: #38bdf8;
+}
+
+.left p{
+    margin-top: 20px;
+    line-height: 1.8;
+    font-size: 18px;
+    color: #ddd;
+}
+
+.buttons{
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.buttons a{
+    padding: 16px 38px;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #7c3aed, #2563eb);
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: .4s;
+}
+
+.buttons a:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px #7c3aed;
+}
+
+.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right img{
+    width: 390px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 40px;
+    border: 5px solid #7c3aed;
+    transition: .5s;
+    box-shadow: 0 0 60px #7c3aed;
+}
+
+.right img:hover{
+    transform: scale(1.05);
+}
+
+/* --- 4. تأثيرات الإضاءة الخلفية (Blur Effects) --- */
+.blur{
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: -1;
+}
+
+.blur1{
+    width: 250px;
+    height: 250px;
+    background: #7c3aed;
+    top: -80px;
+    left: -80px;
+}
+
+.blur2{
+    width: 350px;
+    height: 350px;
+    background: #2563eb;
+    bottom: -120px;
+    right: -120px;
+}
+
+.blur3{
+    width: 250px;
+    height: 250px;
+    background: #9333ea;
+    top: 40%;
+    left: 45%;
+    opacity: .4;
+}
+
+/* --- 5. العناوين المشتركة للأقسام --- */
+.section-title{
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2{
+    font-size: 45px;
+    color: #38bdf8;
+}
+
+/* --- 6. قسم نبذة عني (About Me) --- */
+.about-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 70px;
+}
+
+.about-image img{
+    width: 350px;
+    border-radius: 25px;
+}
+
+.about-text{
+    flex: 1;
+}
+
+.about-text h3{
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.about-text p{
+    line-height: 1.9;
+    color: #ddd;
+}
+
+/* --- 7. الإحصائيات والكروت العامة / الاتصال --- */
+.stats{
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.stat{
+    background: rgba(255, 255, 255, .05);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: .4s;
+    flex: 1;
+}
+
+.stat h3 {
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+.stat .social-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #7c3aed;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.stat .social-link:hover {
+    background: #38bdf8;
+    transform: scale(1.05);
+}
+
+.stat:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px #7c3aed;
+}
+
+/* --- 8. قسم المهارات والخدمات (Skills & Services) --- */
+.skills-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.skill{
+    background: #10172d;
+    padding: 20px 15px;         /* تقليل المسافة الرأسية والأفقية لتصغير المربع */
+    border-radius: 12px;        /* جعل الانحناء أنعم ليناسب الحجم الأصغر */
+    text-align: center;
+    font-size: 16px;            /* تصغير حجم الخط إلى حجم أنيق ومناسب */
+    font-weight: 500;           /* إضافة سمك خفيف للخط ليظل واضحاً */
+    transition: .4s;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill:hover{
+    background: #7c3aed;
+    transform: translateY(-12px);
+    box-shadow: 0 0 20px #7c3aed;
+}
+
+#services .skill {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* --- 9. تحسين قسم المشاريع (Projects) --- */
+#projects .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+#projects .skill {
+    text-align: left;
+    cursor: default;
+}
+
+#projects .skill:hover {
+    background: #10172d;
+    box-shadow: none;
+    transform: none;
+}
+
+#projects .skill h3 {
+    font-size: 24px;
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+#projects .skill p {
+    font-size: 16px;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.project-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.project-buttons a {
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.btn-details {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-details:hover {
+    background: white;
+    color: black;
+}
+
+.btn-git {
+    background: #7c3aed;
+    color: white;
+}
+
+.btn-git:hover {
+    background: #2563eb;
+    box-shadow: 0 0 15px #2563eb;
+}
+
+/* --- 10. تذييل الصفحة (Footer) --- */
+footer{
+    padding: 50px;
+    text-align: center;
+    background: #050816;
+    color: #888;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- 11. التجاوب مع الموبايل والشاشات الصغيرة (Responsive Design) --- */
+@media(max-width: 992px){
+    nav{
+        padding: 20px 30px;
+    }
+
+    nav ul{
+        display: none; /* لإخفاء القائمة في الموبايل بشكل مؤقت (يمكنك مستقبلاً عمل زر Hamburger لها) */
+    }
+
+    .hero{
+        flex-direction: column-reverse;
+        justify-content: center;
+        text-align: center;
+        padding: 40px 20px;
+        height: auto;
+        gap: 40px;
+        margin-top: 100px; /* لتجنب دخول عناصر الهيرو تحت النبار الثابت */
+    }
+
+    .left, .right{
+        width: 100%;
+    }
+
+    .left h1{
+        font-size: 44px;
+    }
+
+    .right img {
+        width: 280px;
+        height: 360px;
+    }
+
+    .about-container{
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    section{
+        padding: 70px 20px;
+    }
+}
+
+
+/* --- تصغير حجم مربعات قسم الخدمات وعناصرها --- */
+#services .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* تقليل الحد الأدنى لعرض المربع ليصطفوا بشكل أصغر وأجمل */
+    gap: 20px; /* تقليل المسافات بين المربعات */
+}
+
+#services .skill {
+    padding: 20px 15px;  /* تقليل المسافات الداخلية لتصغير المربع نفسه */
+    font-size: 15px;     /* تصغير حجم الخط ليكون أنيقاً ومتناسباً مع العناوين الطويلة */
+    font-weight: 500;    /* الحفاظ على وضوح الخط */
+    border-radius: 12px; /* جعل الانحناء متناسق مع الحجم الأصغر */
+}
+
+
+.stat .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* مسافة بين الأيقونة والاسم */
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #7c3aed, #2563eb);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 15px;
+    transition: .3s;
+    margin-top: 5px;
+}
+
+.stat .social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px #7c3aed;
+    color: white; /* للحفاظ على لون النص أبيض عند الهوفر */
+}
