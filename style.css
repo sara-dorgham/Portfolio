@@ -20,39 +20,40 @@ section{
     padding: 100px;
 }
 
-/* --- 2. شريط التنقل (Navigation) --- */
-nav{
+/* --- 2. شريط التنقل الثابت والمتجاوب (Navigation) --- */
+nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* توسيط القائمة بالكامل */
     align-items: center;
-    padding: 25px 100px;
+    padding: 20px 0;
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    background: rgba(5, 8, 22, 0.8);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+    background: rgba(5, 8, 22, 0.85); /* خلفية داكنة متناسقة */
+    backdrop-filter: blur(12px); /* تأثير زجاجي ناعم */
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 99999; /* يضمن ظهوره فوق الصورة والخلفية دائماً */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.logo{
-    font-size: 32px;
-    font-weight: bold;
-    color: #7c3aed;
-}
-
-nav ul{
+nav ul {
     display: flex;
     gap: 35px;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-nav a{
+nav a {
     color: white;
     text-decoration: none;
     font-size: 18px;
+    font-weight: 500;
     transition: .3s;
 }
 
-nav a:hover{
+nav a:hover {
     color: #38bdf8;
 }
 
@@ -225,18 +226,24 @@ nav a:hover{
 }
 
 .stat .social-link {
-    display: inline-block;
-    padding: 8px 16px;
-    background: #7c3aed;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #7c3aed, #2563eb);
     color: white;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 15px;
     transition: .3s;
+    margin-top: 5px;
 }
 
 .stat .social-link:hover {
-    background: #38bdf8;
-    transform: scale(1.05);
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px #7c3aed;
+    color: white;
 }
 
 .stat:hover{
@@ -253,11 +260,11 @@ nav a:hover{
 
 .skill{
     background: #10172d;
-    padding: 20px 15px;         /* تقليل المسافة الرأسية والأفقية لتصغير المربع */
-    border-radius: 12px;        /* جعل الانحناء أنعم ليناسب الحجم الأصغر */
+    padding: 20px 15px;
+    border-radius: 12px;
     text-align: center;
-    font-size: 16px;            /* تصغير حجم الخط إلى حجم أنيق ومناسب */
-    font-weight: 500;           /* إضافة سمك خفيف للخط ليظل واضحاً */
+    font-size: 16px;
+    font-weight: 500;
     transition: .4s;
     cursor: pointer;
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -269,9 +276,16 @@ nav a:hover{
     box-shadow: 0 0 20px #7c3aed;
 }
 
+#services .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
 #services .skill {
-    font-size: 18px;
+    padding: 20px 15px;
+    font-size: 15px;
     font-weight: 500;
+    border-radius: 12px;
 }
 
 /* --- 9. تحسين قسم المشاريع (Projects) --- */
@@ -316,17 +330,6 @@ nav a:hover{
     transition: .3s;
 }
 
-.btn-details {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.btn-details:hover {
-    background: white;
-    color: black;
-}
-
 .btn-git {
     background: #7c3aed;
     color: white;
@@ -346,16 +349,8 @@ footer{
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* --- 11. التجاوب مع الموبايل والشاشات الصغيرة (Responsive Design) --- */
+/* --- 11. التجاوب الكامل لشاشات التابلت والموبايل (Responsive Design) --- */
 @media(max-width: 992px){
-    .navbar{position: relative; /* أو fixed / absolute حسب تصميمك */
-    z-index: 9999;
-}
-
-    nav ul{
-        display: none; /* لإخفاء القائمة في الموبايل بشكل مؤقت (يمكنك مستقبلاً عمل زر Hamburger لها) */
-    }
-
     .hero{
         flex-direction: column-reverse;
         justify-content: center;
@@ -363,7 +358,7 @@ footer{
         padding: 40px 20px;
         height: auto;
         gap: 40px;
-        margin-top: 100px; /* لتجنب دخول عناصر الهيرو تحت النبار الثابت */
+        margin-top: 100px; /* يمنع عناصر الهيرو من الدخول تحت النبار الثابت */
     }
 
     .left, .right{
@@ -395,78 +390,27 @@ footer{
     }
 }
 
-
-/* --- تصغير حجم مربعات قسم الخدمات وعناصرها --- */
-#services .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* تقليل الحد الأدنى لعرض المربع ليصطفوا بشكل أصغر وأجمل */
-    gap: 20px; /* تقليل المسافات بين المربعات */
-}
-
-#services .skill {
-    padding: 20px 15px;  /* تقليل المسافات الداخلية لتصغير المربع نفسه */
-    font-size: 15px;     /* تصغير حجم الخط ليكون أنيقاً ومتناسباً مع العناوين الطويلة */
-    font-weight: 500;    /* الحفاظ على وضوح الخط */
-    border-radius: 12px; /* جعل الانحناء متناسق مع الحجم الأصغر */
-}
-
-
-.stat .social-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px; /* مسافة بين الأيقونة والاسم */
-    padding: 12px 24px;
-    background: linear-gradient(45deg, #7c3aed, #2563eb);
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: 500;
-    font-size: 15px;
-    transition: .3s;
-    margin-top: 5px;
-}
-
-.stat .social-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 15px #7c3aed;
-    color: white; /* للحفاظ على لون النص أبيض عند الهوفر */
-}
-
-
-/* --- تنسيقات خاصة بشاشات الموبايل والتابلت --- */
 @media (max-width: 768px) {
     nav {
-        padding: 15px 20px; /* تقليل المسافات الجانبية الكبيرة في الموبايل */
-        flex-direction: column; /* ترتيب اللوجو والقائمة تحت بعض ليوفر مساحة */
-        gap: 10px;
-        position: static; /* منع تثبيت البار إذا كان يغطي مساحة كبيرة من الشاشة */
+        padding: 15px 10px;
     }
 
     nav ul {
-        gap: 15px; /* تقليل المسافات بين الأزرار (Home, About...) */
-        flex-wrap: wrap; /* السماح للكلمات بالنزول لسطر جديد لو الشاشة صغيرة جداً */
+        gap: 15px; /* مسافات مناسبة على الموبايل */
+        flex-wrap: wrap; /* ينزل اللينكات تلقائياً لو العرض غير كافي بدون اختفاء */
         justify-content: center;
-        padding: 0;
     }
 
     nav a {
-        font-size: 15px; /* تصغير حجم الخط ليناسب شاشة الموبايل */
+        font-size: 14px; /* تصغير حجم الخط ليناسب الشاشة الصغيرة */
     }
 
-    /* تعديل الجزء الأول من الموقع (Hero Section) للموبايل */
     .hero {
-        flex-direction: column-reverse; /* وضع الصورة فوق الكلام في الموبايل */
-        padding: 40px 20px;
-        height: auto;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .left {
-        width: 100%; /* جعل النص يأخذ عرض الشاشة بالكامل */
+        margin-top: 80px;
     }
 
     .left h1 {
-        font-size: 40px; /* تصغير اسمك الكبير ليناسب الموبايل ولا يخرج عن الإطار */
+        font-size: 40px;
     }
 
     .left h2 {
@@ -474,16 +418,16 @@ footer{
     }
 
     .buttons {
-        justify-content: center; /* تمليط الأزرار في المنتصف */
+        justify-content: center;
         flex-wrap: wrap;
     }
 
     .right img {
-        width: 280px; /* تصغير صورتك الشخصية قليلاً لتناسب شاشة الفون */
+        width: 280px;
         height: 360px;
     }
     
     section {
-        padding: 40px 20px; /* تقليل الحواف البيضاء الكبيرة في السكاشن */
+        padding: 40px 20px;
     }
 }
