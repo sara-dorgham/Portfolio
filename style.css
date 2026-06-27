@@ -430,3 +430,60 @@ footer{
     box-shadow: 0 0 15px #7c3aed;
     color: white; /* للحفاظ على لون النص أبيض عند الهوفر */
 }
+
+
+/* --- تنسيقات خاصة بشاشات الموبايل والتابلت --- */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px; /* تقليل المسافات الجانبية الكبيرة في الموبايل */
+        flex-direction: column; /* ترتيب اللوجو والقائمة تحت بعض ليوفر مساحة */
+        gap: 10px;
+        position: static; /* منع تثبيت البار إذا كان يغطي مساحة كبيرة من الشاشة */
+    }
+
+    nav ul {
+        gap: 15px; /* تقليل المسافات بين الأزرار (Home, About...) */
+        flex-wrap: wrap; /* السماح للكلمات بالنزول لسطر جديد لو الشاشة صغيرة جداً */
+        justify-content: center;
+        padding: 0;
+    }
+
+    nav a {
+        font-size: 15px; /* تصغير حجم الخط ليناسب شاشة الموبايل */
+    }
+
+    /* تعديل الجزء الأول من الموقع (Hero Section) للموبايل */
+    .hero {
+        flex-direction: column-reverse; /* وضع الصورة فوق الكلام في الموبايل */
+        padding: 40px 20px;
+        height: auto;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .left {
+        width: 100%; /* جعل النص يأخذ عرض الشاشة بالكامل */
+    }
+
+    .left h1 {
+        font-size: 40px; /* تصغير اسمك الكبير ليناسب الموبايل ولا يخرج عن الإطار */
+    }
+
+    .left h2 {
+        font-size: 26px;
+    }
+
+    .buttons {
+        justify-content: center; /* تمليط الأزرار في المنتصف */
+        flex-wrap: wrap;
+    }
+
+    .right img {
+        width: 280px; /* تصغير صورتك الشخصية قليلاً لتناسب شاشة الفون */
+        height: 360px;
+    }
+    
+    section {
+        padding: 40px 20px; /* تقليل الحواف البيضاء الكبيرة في السكاشن */
+    }
+}
