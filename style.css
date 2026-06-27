@@ -348,9 +348,9 @@ footer{
 
 /* --- 11. التجاوب مع الموبايل والشاشات الصغيرة (Responsive Design) --- */
 @media(max-width: 992px){
-    nav{
-        padding: 20px 30px;
-    }
+    .navbar{position: relative; /* أو fixed / absolute حسب تصميمك */
+    z-index: 9999;
+}
 
     nav ul{
         display: none; /* لإخفاء القائمة في الموبايل بشكل مؤقت (يمكنك مستقبلاً عمل زر Hamburger لها) */
